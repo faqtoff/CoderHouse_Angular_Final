@@ -1,13 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "coderhodueAngular": {
+    "FAQTOFF": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/coderhodue-angular",
+            "outputPath": "dist/FAQTOFF",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,8 +34,9 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/my-theme.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
@@ -70,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "coderhodueAngular:build:production"
+              "browserTarget": "FAQTOFF:build:production"
             },
             "development": {
-              "browserTarget": "coderhodueAngular:build:development"
+              "browserTarget": "FAQTOFF:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "coderhodueAngular:build"
+            "browserTarget": "FAQTOFF:build"
           }
         },
         "test": {
@@ -97,7 +104,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -106,7 +112,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "FAQTOFF"
 }
